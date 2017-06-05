@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>yes 33</title>
+    <link rel="stylesheet" href="lib/jqueryfullPage/jquery.fullpage.css">
+    <style type="text/css">
+        body
+        {
+            color: #FFFFFF;
+        }
+        .section1
+        {
+            background-color: #BFDA00;
+        }
+        .section2
+        {
+            background-color: #2EBE21;
+        }
+        .section3
+        {
+            background-color: #2C3E50;
+        }
+        .section4
+        {
+            background-color: #FF9900;
+        }
+        .title{
+            text-align: center;
+        }
+        .slongan{
+            text-align: center;
+            font-size: 22px;
+        }
+    </style>
+    <script src='lib/jquery.js'></script>
+<script src='lib/jqueryfullPage/jquery.fullpage.js'></script>
+</head>
+
+<body>
+    <div id="ido">
+        <div class="section section1 active">
+            <h1 class='title'>是否很久没有对妈妈说：Yes!</h1>
+            <div class="slongan">
+                妈妈说：是否帮我洗个碗？
+            </div>
+        </div>
+        <div class="section section2">
+            <h1 class='title'>是否很久没有对朋友说：Yes!</h1>
+            <div class="slongan">朋友说：一起去旅游吗？</div>
+        </div>
+        <div class="section section3">
+            <h1 class='title'>是否很久没有对同事说：Yes!</h1>
+            <div class="slongan">同事说:这个case给点意见好吗？</div>
+        </div>
+        <div class="section section4">
+            <h1 class='title'>是否很久没有对陌生人说：Yes!</h1>
+            <div class="slongan">陌生人说:请问……？</div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+$(function() {
+            $("#ido").fullpage(
+                {
+                    continuousVertical: false,  //循环演示
+                    //绑定菜单
+                    anchors: ['page1', 'page2', 'page3', 'page4','page5','page6'],
+                    menu: '#menu',
+
+                    // 导航
+                    'navigation': true,
+                });
+        });
+</script>
+
+</html>
