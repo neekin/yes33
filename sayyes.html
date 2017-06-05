@@ -6,32 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 
 <body>
-    <div id="app">
-        {{ message }}
+    <div class="container-fluid">
+        <nav class="nav"><a href="">aaa</a></nav>
     </div>
-    <div id="app-2">
-  <span v-bind:title="message">
-    鼠标悬停几秒钟查看此处动态绑定的提示信息！
-  </span>
-</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-8">
+                <div class="panel panel-primary" id='app'>
+                    <div class="panel-heading">
+                        Say Yes!
+                    </div>
+                    <div class="panel-body">
+                        <form v-on:submit.prevent='doSomethingSayYes(sayYes)'>
+                            <div class="form-group">
+                                <input type="text" class='form-control' placeholder="一些事情" v-model='sayYes.something'>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class='btn  btn-success'>Yes</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                 你已经完成       {{Yeses.length}} 次yes
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
     var app = new Vue({
         el: '#app',
         data: {
-            message: 'Say yes!'
+            Yeses: [],
+            sayYes: {
+                date: null,
+                something: null
+            }
+        },
+        methods: {
+            doSomethingSayYes: function (sayYes) {
+                sayYes.date = new Date();
+                this.Yeses.push(sayYes);
+                this.sayYes = {
+                    date: null,
+                    something: null
+                };
+            }
         }
     })
-    var app2 = new Vue({
-  el: '#app-2',
-  data: {
-    message: '页面加载于 ' + new Date()
-  }
-})
 </script>
 
 </html>
